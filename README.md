@@ -38,10 +38,13 @@ minikube start
 
 minikube delete
 
-kubectl help #Help
-kubectl options #Help about options
+kubectl help # Help
+kubectl options # Help about options
 
-kubectl get all ## List all the things inside the current namespace
+kubectl get all # List all the things inside the current namespace
+
+kubctl get ns # List namespaces
+
 kubectl -n <namespace> get all # List all in a specific namespace
 
 ```
