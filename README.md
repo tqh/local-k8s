@@ -22,6 +22,14 @@ minikube start --docker-opt network-control-plane-mtu=1400 --docker-opt mtu=1400
 
 ## Kubernetes is running inside Minikube
 ```
+
+### Autocompletion in ZSH
+In ~/.zshrc add
+```
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+[[ /usr/local/bin/minikube ]] && source <(minikube completion zsh)
+```
+
 ### Useful commands
 ```
 minikube ssh # ssh's into the linux virtual machine
@@ -47,5 +55,30 @@ kubctl get ns # List namespaces
 
 kubectl -n <namespace> get all # List all in a specific namespace
 
+kubectl logs -f <pod> #tail logs for a pod
+
+kubectl port-forward <pod> <port> #Access a port on a remote machine locally
+```
+
+### Tricks
+Kubernetes DNS caches responses for 30 seconds, even if it is a **NOT FOUND** response. This may cause long startup as it waits for the cache to have the real name. If we reduce the negative cache to 2s it helps a lot. 
+```
+kubectl -n kube-system edit configmap coredns
+```
+Change the line 
+```
+cache 30
+
+```
+To
+```
+cache 30 {
+  denial 9984 2
+}
+```
+This will cache negative responses for 2 seconds. 9984 is the max no of items to cache and the default value.
+After that restart coredns, by deleting the pod so a new one will start up.
+```
+kubectl -n kube-system delete pod coredns-<some hash> #Can probably be autocompleted with tab in terminal
 ```
 
