@@ -68,7 +68,6 @@ kubectl -n kube-system edit configmap coredns
 Change the line 
 ```
 cache 30
-
 ```
 To
 ```
@@ -76,6 +75,7 @@ cache 30 {
   denial 9984 2
 }
 ```
+and save.  
 This will cache negative responses for 2 seconds. 9984 is the max no of items to cache and the default value.
 After that restart coredns, by deleting the pod so a new one will start up.
 ```
