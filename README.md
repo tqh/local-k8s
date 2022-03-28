@@ -2,7 +2,8 @@
 
 ## Setup
 ### Setting up local Kubernetes Cluster / Docker Env
-´´´
+
+```
 brew install minikube skaffold kubectl
 brew install docker hyperkit #Only needed if you don't have/want Docker for Desktop
 
@@ -20,7 +21,7 @@ minikube start
 minikube start --docker-opt network-control-plane-mtu=1400 --docker-opt mtu=1400
 
 ## Kubernetes is running inside Minikube
-´´´
+```
 ### Useful commands
 ```
 minikube ssh # ssh's into the linux virtual machine
