@@ -28,7 +28,7 @@ minikube ssh # ssh's into the linux virtual machine
 
 eval $(minikube docker-env) # Sets up the docker client to talk to the docker daemon inside minikube in this terminal
 ## Note that this may cause confusion as you can have Docker For Desktop as well
-## So that you see different results (lik docker images) depending if you talk to Minikube docker or Docker for Desktop
+## So that you see different results (like docker images) depending if you talk to Minikube docker or Docker for Desktop
 
 minikube pause #Pauses Kubernetes inside minikube to save energy 
 minikube unpause
