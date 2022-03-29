@@ -82,3 +82,7 @@ After that restart coredns, by deleting the pod so a new one will start up.
 kubectl -n kube-system delete pod coredns-<some hash> #Can probably be autocompleted with tab in terminal
 ```
 
+## Skaffold
+
+### JIB example: 
+https://github.com/GoogleContainerTools/skaffold/tree/main/examples/jib
