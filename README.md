@@ -60,6 +60,9 @@ kubectl logs -f <pod> #tail logs for a pod
 kubectl port-forward <pod> <port> #Access a port on a remote machine locally
 ```
 
+## Kubernetes Basics Course
+https://kubernetes.io/docs/tutorials/kubernetes-basics/
+
 ### Tricks
 Kubernetes DNS caches responses for 30 seconds, even if it is a **NOT FOUND** response. This may cause long startup as it waits for the cache to have the real name. If we reduce the negative cache to 2s it helps a lot. 
 ```
@@ -86,3 +89,5 @@ kubectl -n kube-system delete pod coredns-<some hash> #Can probably be autocompl
 
 ### JIB example: 
 https://github.com/GoogleContainerTools/skaffold/tree/main/examples/jib
+
+
